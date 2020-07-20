@@ -10,91 +10,34 @@
                     <h5 class="description"> This is the paragraph where you can write more details about your projects. Keep you user engaged by providing meaningful information.</h5>
                 </div>
                 <div class="project-pills">
-                    <ngb-tabset type="pills" class="nav nav-pills nav-pills-danger justify-content-center">
-                        <ngb-tab title="All categories">
+                    <ngb-tabset (tabChange)="onSelect($event)" type="pills" *ngIf="categories" class="nav nav-pills nav-pills-danger justify-content-center">
+                        <ngb-tab id="all"  title= "All" >
                             <ng-template ngbTabContent>
                             </ng-template>
                         </ngb-tab>
-                        <ngb-tab title="Marketing">
+                        <ngb-tab id="{{cat._id}}" *ngFor="let cat of categories | async" title= "{{cat.title}}" >
                             <ng-template ngbTabContent>
                             </ng-template>
                         </ngb-tab>
-                        <ngb-tab title="Development">
-                            <ng-template ngbTabContent>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Productivity">
-                            <ng-template ngbTabContent>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Web Design">
-                            <ng-template ngbTabContent>
-                            </ng-template>
-                        </ngb-tab>
+                       
                     </ngb-tabset>
                 </div>
             </div>
             <div class="space-top"></div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')" (click)="openScrollableContent()">
-                        <div class="card-body">
-                            <h6 class="card-category" (click)="openScrollableContent()">Productivy Apps</h6>
-                            <a href="javascript:void(0)" (click)="openScrollableContent()">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        
+        <div *ngFor="let cat of categories | async" class="container">
+
+            <div *ngIf="selectedCategorie == cat._id || selectedCategorie == 'all'" class="title">
+                <h3>{{cat.title}}</h3>
             </div>
-           <div class="row">
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
+            <div class="row" *ngIf="selectedCategorie == cat._id || selectedCategorie == 'all'">
+
+                <div *ngFor="let item of cat.items" class="col-md-4">
+                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')" (click)="openScrollableContent(longContent)">
                         <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
+                            <h6 class="card-category" (click)="openScrollableContent(longContent)"></h6>
+                            <a href="javascript:void(0)" (click)="openScrollableContent(longContent)">
+                                <h3 class="card-title"> {{item.title}} </h3>
                             </a>
                             <p class="card-description">
                                 If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
@@ -106,147 +49,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
+             
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')">
-                        <div class="card-body">
-                            <h6 class="card-category">Productivy Apps</h6>
-                            <a href="javascript:void(0)">
-                                <h3 class="card-title">MateLabs mixes machine</h3>
-                            </a>
-                            <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
-                            </p>
-                            <br/>
-                            <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+         
     </div>
 
 

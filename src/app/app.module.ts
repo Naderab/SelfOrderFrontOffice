@@ -56,6 +56,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { HttpClientModule } from '@angular/common/http';
+import { CategoriesService } from './providers/categories.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -64,6 +67,7 @@ import {MatTreeModule} from '@angular/material/tree';
         DialogContentExampleDialog
     ],
     imports: [
+        HttpClientModule,
         BrowserAnimationsModule,
         NgbModule,
         FormsModule,
@@ -120,8 +124,8 @@ import {MatTreeModule} from '@angular/material/tree';
     
       
     ],
-    providers: [],
-    bootstrap: [AppComponent],
     entryComponents: [DialogContentExampleDialog],
+    providers: [CategoriesService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
