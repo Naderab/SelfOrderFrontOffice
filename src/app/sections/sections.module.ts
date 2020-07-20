@@ -5,7 +5,7 @@ import { HeadersComponent } from './headers/headers.component';
 import { FeaturesComponent } from './features/features.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { TeamsComponent } from './teams/teams.component';
-import { ProjectsComponent } from './projects/projects.component';
+import { ProjectsComponent, DialogContentExampleDialog } from './projects/projects.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -33,9 +33,12 @@ import { AgmCoreModule } from '@agm/core';
         PricingComponent,
         TestimonialsComponent,
         ContactsComponent
+        
     ],
     exports: [
-        SectionsComponent
-    ]
+        SectionsComponent,
+        
+    ],
+    
 })
 export class SectionsModule { }

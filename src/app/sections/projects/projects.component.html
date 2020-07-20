@@ -37,10 +37,10 @@
             <div class="space-top"></div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')" (click)="openScrollableContent(longContent)">
+                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')" (click)="openScrollableContent()">
                         <div class="card-body">
-                            <h6 class="card-category" (click)="openScrollableContent(longContent)">Productivy Apps</h6>
-                            <a href="javascript:void(0)" (click)="openScrollableContent(longContent)">
+                            <h6 class="card-category" (click)="openScrollableContent()">Productivy Apps</h6>
+                            <a href="javascript:void(0)" (click)="openScrollableContent()">
                                 <h3 class="card-title">MateLabs mixes machine</h3>
                             </a>
                             <p class="card-description">
@@ -256,24 +256,3 @@
 
     <!--     *********    PROJECTS 4     *********      -->
 </div>
-<ng-template #longContent let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title">Modal title</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-        <div class="row"><div class="col-md-12">
-            <img src='assets/img/sections/soroush-karimi.jpg'/>
-        </div></div>
-        <div class="row">
-            <div class="col-md-12">
-                <p>hahaah</p>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-    </div>
-  </ng-template>

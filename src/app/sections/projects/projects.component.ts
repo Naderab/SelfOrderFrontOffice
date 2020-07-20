@@ -1,5 +1,11 @@
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'dialog-content-example-dialog.html',
+})
+export class DialogContentExampleDialog {}
 
 @Component({
   selector: 'app-projects',
@@ -8,12 +14,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
-  openScrollableContent(longContent) {
-    this.modalService.open(longContent, { scrollable: true });
+  openScrollableContent() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
+
+
