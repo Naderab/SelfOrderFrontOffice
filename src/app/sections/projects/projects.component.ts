@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { CategoriesService } from "../../providers/categories.service";
 
-@Component({
-  selector: 'dialog-content-example-dialog',
-  templateUrl: 'dialog-content-example-dialog.html',
-})
-export class DialogContentExampleDialog {}
+
 
 @Component({
   selector: "app-projects",
@@ -17,6 +13,7 @@ export class ProjectsComponent implements OnInit {
   categories;
   categorie$;
   selectedCategorie = "all";
+  selctedItem;
   constructor(
     private categorieService: CategoriesService,
     public dialog: MatDialog
@@ -27,8 +24,10 @@ export class ProjectsComponent implements OnInit {
   async ngOnInit() {
     this.categories = await this.categorieService.getCategories();
   }
-  openScrollableContent() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+  openScrollableContent(itemSelected) {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog,{
+      data: {item : itemSelected}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -41,5 +40,17 @@ export class ProjectsComponent implements OnInit {
     //this.categorie$ = await this.categorieService.getCategorie(e.activeId)
   }
 }
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'dialog-content-example-dialog.html',
+})
+export class DialogContentExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<ProjectsComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+      console.log(data)
 
+    }
+
+}
 

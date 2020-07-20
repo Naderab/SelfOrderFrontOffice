@@ -33,18 +33,18 @@
             <div class="row" *ngIf="selectedCategorie == cat._id || selectedCategorie == 'all'">
 
                 <div *ngFor="let item of cat.items" class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')" (click)="openScrollableContent(longContent)">
+                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')" (click)="openScrollableContent(item)">
                         <div class="card-body">
-                            <h6 class="card-category" (click)="openScrollableContent(longContent)"></h6>
-                            <a href="javascript:void(0)" (click)="openScrollableContent(longContent)">
+                            <h6 class="card-category" (click)="openScrollableContent(item)"></h6>
+                            <a href="javascript:void(0)" (click)="openScrollableContent(item)">
                                 <h3 class="card-title"> {{item.title}} </h3>
                             </a>
                             <p class="card-description">
-                                If you’re not familiar with IFTTT, it’s an automation tool for creating your own if/then statements without any programming knowledge. The service makes it possible...
+                                {{item.description}}
                             </p>
                             <br/>
                             <a href="javascript:void(0)" class="btn btn-info btn-round">
-                                <i class="fa fa-book" aria-hidden="true"></i> Read Article
+                                <i class="fa fa-money" aria-hidden="true"></i> {{item.price_info.price }} £
                             </a>
                         </div>
                     </div>
