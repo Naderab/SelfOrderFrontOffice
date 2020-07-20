@@ -2,8 +2,10 @@
     <div class="container">
         <div class="navbar-translate">
             <div class="navbar-header">
-                <a class="navbar-brand" [routerLink]="['/presentation']">Paper Kit 2 PRO Angular</a>
+                <a class="navbar-brand" [routerLink]="['/presentation']">Eats</a>
+               
             </div>
+            
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
@@ -54,8 +56,8 @@
                     </div>
                 </div>
                 <li class="nav-item">
-                    <a class="btn btn-round btn-danger" href="https://www.creative-tim.com/product/paper-kit-2-pro-angular">
-                        <i class="nc-icon nc-cart-simple"></i> Buy now
+                    <a class="btn btn-round btn-danger" [routerLink]="['examples/login']">
+                        <i class="nc-icon nc-single-02"></i> Sign in
                     </a>
                 </li>
             </ul>

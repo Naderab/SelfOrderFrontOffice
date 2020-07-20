@@ -4,7 +4,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+    styleUrls: ['../../../../node_modules/@syncfusion/ej2-dropdowns/styles/material.css']
 })
 export class NavbarComponent implements OnInit {
     private toggleButton: any;

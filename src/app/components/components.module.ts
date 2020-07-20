@@ -23,7 +23,6 @@ import { InfoAreasComponent } from './info-areas/info-areas.component';
 import { TablesAreasComponent } from './tables-areas/tables-areas.component';
 import { CommentsAreasComponent } from './comments-areas/comments-areas.component';
 import { CardsAreasComponent } from './cards-areas/cards-areas.component';
-import { AjoutdonComponent } from './ajoutdon/ajoutdon.component';
 
 @NgModule({
     imports: [
@@ -51,8 +50,8 @@ import { AjoutdonComponent } from './ajoutdon/ajoutdon.component';
         InfoAreasComponent,
         TablesAreasComponent,
         CommentsAreasComponent,
-        CardsAreasComponent,
-        AjoutdonComponent
+        CardsAreasComponent
+        
     ],
     exports:[ ComponentsComponent ]
 })

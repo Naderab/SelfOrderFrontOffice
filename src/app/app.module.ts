@@ -10,13 +10,16 @@ import { ExamplesModule } from './examples/examples.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AutoCompleteModule } from '@syncfusion/ej2-angular-dropdowns';
 
 import { PresentationModule } from './presentation/presentation.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        HomeComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -27,7 +30,8 @@ import { PresentationModule } from './presentation/presentation.module';
         PresentationModule,
         SectionsModule,
         ComponentsModule,
-        ExamplesModule
+        ExamplesModule,
+        AutoCompleteModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
@@ -25,7 +26,6 @@ import { Page404Component } from './examples/page404/page404.component';
 import { Page422Component } from './examples/page422/page422.component';
 import { Page500Component } from './examples/page500/page500.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
-import { AjoutdonComponent } from './components/ajoutdon/ajoutdon.component';
 
 const routes: Routes =[
     { path: 'presentation',         component: PresentationComponent },
@@ -47,10 +47,11 @@ const routes: Routes =[
     { path: 'examples/search',      component: SearchComponent },
     { path: 'examples/settings',    component: SettingsComponent },
     { path: 'examples/twitter',     component: TwitterComponent },
+    { path: 'home',     component: HomeComponent },
     { path: 'examples/page404',     component: Page404Component },
     { path: 'examples/page422',     component: Page422Component },
     { path: 'examples/page500',     component: Page500Component },
-    { path: 'ajoutdon',           component: AjoutdonComponent },
+
     { path: '', redirectTo: 'presentation', pathMatch: 'full' }
 ];
 
