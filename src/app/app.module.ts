@@ -14,6 +14,8 @@ import { AutoCompleteModule } from '@syncfusion/ej2-angular-dropdowns';
 
 import { PresentationModule } from './presentation/presentation.module';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CategoriesService } from './providers/categories.service';
 
 @NgModule({
     declarations: [
@@ -22,6 +24,7 @@ import { HomeComponent } from './home/home.component';
         HomeComponent
     ],
     imports: [
+        HttpClientModule,
         BrowserAnimationsModule,
         NgbModule,
         FormsModule,
@@ -33,7 +36,7 @@ import { HomeComponent } from './home/home.component';
         ExamplesModule,
         AutoCompleteModule
     ],
-    providers: [],
+    providers: [CategoriesService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
