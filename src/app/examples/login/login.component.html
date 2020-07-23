@@ -6,12 +6,12 @@
                 <div class="col-md-4 col-sm-6 ml-auto mr-auto">
                     <div class="card card-register">
                         <h3 class="card-title">Welcome</h3>
-                        <form class="register-form">
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                             <label>Email</label>
-                            <input type="email" class="form-control no-border" placeholder="Email">
+                            <input  class="form-control no-border"  formControlName="email"  placeholder="Email" type="email">
 
                             <label>Password</label>
-                            <input type="password" class="form-control no-border" placeholder="Password">
+                            <input type="password" formControlName="password" class="form-control no-border" placeholder="Password">
                             <button class="btn btn-danger btn-block btn-round">Login</button>
                         </form>
                         <div class="forgot">
