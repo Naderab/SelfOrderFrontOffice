@@ -1,13 +1,46 @@
 <style>
+  .fg {
+    background: rgb(246, 246, 246);
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(246, 246, 246);
+}
+.jx {
+    padding: 16px 24px;
+}
+.e4 {
+    font-size: 18px;
+}
+.bg {
+    font-family: UberMoveText-Medium, sans-serif;
+}
+.bf {
+    line-height: 24px;
+}
+.as {
+    color: #000000;
+}
+.jy {
+    padding: 24px;
+}
     .header {
         margin-top: 18px;
   background: #1abc9c;
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   height: 300px;
   width: 630px;
   position: relative;
+  
 }
+
 
 /* Page Content */
 .content {padding:20px;}
@@ -20,20 +53,58 @@
       </div>
       
       <div class="content">
-        <h1>{{data.item.title}}</h1>
-        <p>{{data.item.description}}</p>
-        
+        <h1><b>{{data.item.title}}</b></h1>
+        <p>{{data.item.description}}</p>    
+          
       </div>
+     
+      
+        <div *ngFor="let i of data.modifiergroups" class="fg jx">
+          <div class="e4 bg bf as">      
+              {{i.title}}
+            </div>
+            <p>Required</p>
+    </div> 
+    <div class="jy">
+      <mat-radio-group aria-label="Select an option">
+        <ul>
+          <ol><mat-radio-button value="1">Option 1</mat-radio-button></ol>
+          <ol><mat-radio-button value="2">Option 2</mat-radio-button></ol>
+          <ol><mat-radio-button value="3">Option 3</mat-radio-button></ol>
+          <ol><mat-radio-button value="4">Option 4</mat-radio-button></ol> 
+        </ul>
+        
+      </mat-radio-group>
+      </div>
+      <div *ngFor="let i of data.modifiergroups" class="fg jx">
+        <div class="e4 bg bf as">      
+            {{i.title}}
+          </div>
+          <p>Choose up to </p>
+  </div> 
+  <div class="jy">
+  <mat-radio-group aria-label="Select an option">
+    <ul>
+      <ol><mat-checkbox class="example-margin">Check me!</mat-checkbox></ol>
+      <ol><mat-checkbox class="example-margin">Check me!</mat-checkbox></ol>
+      <ol><mat-checkbox class="example-margin">Check me!</mat-checkbox></ol>
+      <ol><mat-checkbox class="example-margin">Check me!</mat-checkbox></ol>
+
+    </ul>
+    
+  </mat-radio-group>
+    </div>
       
   </mat-dialog-content>
-  <mat-dialog-actions >
-      <div class="col-md-3">
-        <mat-form-field >
-            <input matInput type="number" placeholder="Font size (px)"  >
-            <mat-error ></mat-error>
-          </mat-form-field>
-      </div>
-      
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial style="padding-left: 20 px;">Add to Order </button>
+  <mat-dialog-actions align="left">
+    
+        
+        <div class="btn-group">
+            <button class="btn btn-sm btn-border btn-round" (click)="moins()"> - </button>&nbsp;
+            <p><b>&nbsp;&nbsp; {{data.quantity}}&nbsp; &nbsp;</b></p>
+            <button class="btn btn-sm btn-border btn-round"(click)="plus()"> + </button>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-flat-button [mat-dialog-close]="true">Add&nbsp; {{data.quantity}} &nbsp;to Order &nbsp;&nbsp;&nbsp;&nbsp; £{{data.item.price_info.price * data.quantity}}</button>
 
   </mat-dialog-actions>

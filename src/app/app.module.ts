@@ -58,6 +58,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriesService } from './providers/categories.service';
+import { ModifierGroupsService } from './providers/modifier-groups.service';
 
 @NgModule({
     declarations: [
@@ -125,7 +126,7 @@ import { CategoriesService } from './providers/categories.service';
       
     ],
     entryComponents: [DialogContentExampleDialog],
-    providers: [CategoriesService],
+    providers: [CategoriesService,ModifierGroupsService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
