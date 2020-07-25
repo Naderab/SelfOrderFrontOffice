@@ -33,7 +33,7 @@
             <div class="row" *ngIf="selectedCategorie == cat._id || selectedCategorie == 'all'">
 
                 <div *ngFor="let item of cat.items" class="col-md-4">
-                    <div class="card" data-background="image" style="background-image: url('assets/img/sections/joshua-stannard.jpg')" (click)="openScrollableContent(item)">
+                    <div class="card" data-background="image" style="background-image: url('assets/img/download.jpg')" (click)="openScrollableContent(item)">
                         <div class="card-body">
                             <h6 class="card-category" (click)="openScrollableContent(item)"></h6>
                             <a href="javascript:void(0)" (click)="openScrollableContent(item)">
