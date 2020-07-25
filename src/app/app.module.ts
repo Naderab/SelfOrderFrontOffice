@@ -1,7 +1,11 @@
+import { ErrorInterceptor } from './providers/interceptors/error.interceptor';
+import { JwtInterceptor } from './providers/interceptors/jwt.interceptor';
+import { AuthGuard } from './providers/auth.guard.service';
+import { AuthenticationService } from './providers/authentication.service';
 import { DialogContentExampleDialog } from './sections/projects/projects.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
@@ -56,8 +60,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CategoriesService } from './providers/categories.service';
+import { ModifierGroupsService } from './providers/modifier-groups.service';
 
 @NgModule({
     declarations: [
@@ -71,6 +76,7 @@ import { CategoriesService } from './providers/categories.service';
         BrowserAnimationsModule,
         NgbModule,
         FormsModule,
+    ReactiveFormsModule,
         RouterModule,
         AppRoutingModule,
         PresentationModule,
@@ -125,7 +131,9 @@ import { CategoriesService } from './providers/categories.service';
       
     ],
     entryComponents: [DialogContentExampleDialog],
-    providers: [CategoriesService],
+    providers: [AuthenticationService, AuthGuard, CategoriesService, ModifierGroupsService,
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
