@@ -1,0 +1,92 @@
+
+<div class="wrapper">
+    <div class="main">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="title">Shopping Cart Table</h4>
+                    </div>
+                    <div class="col-md-10 ml-auto mr-auto">
+                        <div class="table-responsive">
+                            <table class="table table-shopping">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center"></th>
+                                        <th></th>
+                                        <th class="text-right">{{ tableData3.headerRow[2] }}</th>
+                                        <th class="text-right">{{ tableData3.headerRow[3] }}</th>
+                                        <th class="text-right">{{ tableData3.headerRow[4] }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of tableData3.dataRows">
+                                        <td>
+                                            <div class="img-container">
+                                                <img src="./assets/img/{{row[0]}}" alt="...">
+                                            </div>
+                                        </td>
+                                        <td class="td-product">
+                                            <strong>{{row[1]}}</strong>
+                                            <p>{{row[2]}}</p>
+                                        </td>
+                                        <td class="td-price">
+                                            <small>&euro;</small>{{row[3]}}
+                                        </td>
+                                        <td class="td-number td-quantity">
+                                            {{row[4]}}
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm btn-border btn-round"> - </button>
+                                                <button class="btn btn-sm btn-border btn-round"> + </button>
+                                            </div>
+                                        </td>
+                                        <td class="td-number">
+                                            <small>&euro;</small>{{row[5]}}
+                                        </td>
+                                    </tr>
+        
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td></td>
+                                          <td class="td-total">
+                                            Total
+                                        </td>
+                                        <td class="td-total">
+                                            {{getTotal2()| currency:'EUR':true:'1.2-2'}}
+                                        </td>
+                                    </tr>
+                                    <tr class="tr-actions">
+                                       <td colspan="3"></td>
+                                       <td colspan="2" class="text-right">
+                                           <button type="button" class="btn btn-danger btn-lg" (click)="showElements()">Complete Purchase <i class="fa fa-chevron-right"></i></button>
+                                       </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer footer-black">
+	<div class="container">
+		<div class="row">
+			<nav class="footer-nav">
+				<ul>
+					<li><a href="https://www.creative-tim.com">Creative Tim</a></li>
+					<li><a href="http://blog.creative-tim.com">Blog</a></li>
+					<li><a href="https://www.creative-tim.com/license">Licenses</a></li>
+				</ul>
+			</nav>
+			<div class="credits ml-auto">
+				<span class="copyright">
+					© {{data | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim
+				</span>
+			</div>
+		</div>
+	</div>
+</footer>

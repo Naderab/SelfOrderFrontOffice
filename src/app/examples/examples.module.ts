@@ -1,3 +1,4 @@
+import { CommandeComponent } from './../sections/commande/commande.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
@@ -61,6 +62,7 @@ import { Page500Component } from './page500/page500.component';
         RegisterComponent,
         SearchComponent,
         SettingsComponent,
+        CommandeComponent,
         TwitterComponent,
         Page404Component,
         Page422Component,

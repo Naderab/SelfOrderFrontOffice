@@ -32,7 +32,8 @@ import { AgmCoreModule } from '@agm/core';
         ProjectsComponent,
         PricingComponent,
         TestimonialsComponent,
-        ContactsComponent
+        ContactsComponent,
+        
         
     ],
     exports: [

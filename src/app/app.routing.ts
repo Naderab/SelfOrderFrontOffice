@@ -1,3 +1,4 @@
+import { CommandeComponent } from './sections/commande/commande.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
@@ -47,6 +48,7 @@ const routes: Routes =[
     { path: 'examples/search',      component: SearchComponent },
     { path: 'examples/settings',    component: SettingsComponent },
     { path: 'examples/twitter',     component: TwitterComponent },
+    { path: 'commande',     component: CommandeComponent },
     { path: 'home',     component: HomeComponent },
     { path: 'examples/page404',     component: Page404Component },
     { path: 'examples/page422',     component: Page422Component },
